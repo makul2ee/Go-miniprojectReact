@@ -7,6 +7,7 @@ import TeachersList from './components/Teacherformfind';
 import SubjectList from './components/Subjectformfind';
 import StudentCRUD from './components/Studentformfind';
 import Listcompo from './components/Listcompo';
+import UserList from './components/Userformfind';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -36,6 +37,7 @@ function App() {
           <Route path="/subjects" element={<SubjectList/>} />
           <Route path="/students" element={<StudentCRUD/>} />
           <Route path="/Listcompo" element={<Listcompo/>} />
+          <Route path="/users" element={<UserList/>} />
         </Routes>
       </div>
     </Router>

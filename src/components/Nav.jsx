@@ -39,6 +39,9 @@ const Nav = ({ isLoggedIn, onLogout }) => {
           </li>
           {isLoggedIn ? (
             <>
+             <li>
+                <Link to="/users" className="text-white hover:text-green-500">ตารางผู้ใช้</Link>
+              </li>
               <li>
                 <Link to="/teachers" className="text-white hover:text-green-500">ตารางครู</Link>
               </li>
