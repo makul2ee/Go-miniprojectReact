@@ -85,16 +85,27 @@ const ListTeachers = () => {
   return (
     <div className="container mx-auto">
       <h1 className="text-2xl font-bold mb-4">ตารางข้อมูลครู</h1>
-      <div className="flex justify-between items-center mb-4">
-        <button
-          onClick={handleInsert}
-          className="bg-blue-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mb-4"
-        >
-          เพิ่มครู
-        </button>
+
+      <div className="mb-4">
+        <input
+          type="text"
+          value={searchTerm}
+          onChange={handleSearch}
+          placeholder="ค้นหาตามชื่อ, นามสกุล, อายุ, หรือวิชาที่สอน"
+          className="border border-gray-300 rounded px-6 py-2 text-black"
+        />
       </div>
+
+      <button
+        onClick={handleInsert}
+        className="bg-blue-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mb-4"
+      >
+        เพิ่มครู
+      </button>
+
       {isLoading && <p className="text-gray-600">กำลังโหลด...</p>}
       {error && <p className="text-red-600">เกิดข้อผิดพลาด: {error}</p>}
+
       <table className="w-full mt-4 border-collapse">
         <thead>
           <tr className="bg-gray-800">

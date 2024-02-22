@@ -83,6 +83,17 @@ const ListSubjects = () => {
   return (
     <div className="container mx-auto">
       <h1 className="text-2xl font-bold mb-4">รายการวิชา</h1>
+
+      <div className="mb-4">
+        <input
+          type="text"
+          value={searchTerm}
+          onChange={handleSearch}
+          placeholder="ค้นหาตามชื่อวิชาหรือรายละเอียด"
+          className="border border-gray-300 rounded px-6 py-2 text-black"
+        />
+      </div>
+
       <div className="flex justify-between items-center mb-4">
         <button
           onClick={handleInsert}
@@ -91,8 +102,10 @@ const ListSubjects = () => {
           เพิ่มวิชา
         </button>
       </div>
+
       {isLoading && <p className="text-gray-600">กำลังโหลด...</p>}
       {error && <p className="text-red-600">เกิดข้อผิดพลาด: {error}</p>}
+      
       <table className="w-full mt-4 border-collapse">
         <thead>
           <tr className="bg-gray-800">
