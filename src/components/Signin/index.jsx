@@ -89,6 +89,11 @@ function SignIn({ onLoginSuccess }) {
       });
   
       if (response.data.message === "success") {
+        setPassword('');
+        setNewPassword('');
+        setConfirmPassword('');
+        setIsModalOpen(false); // Close the modal after changing password
+        setError(''); // Clear any previous errors
         toast({
           title: 'Password changed successfully.',
           description: "You've successfully changed your password.",
@@ -96,10 +101,6 @@ function SignIn({ onLoginSuccess }) {
           duration: 5000,
           isClosable: true,
         });
-        setPassword('');
-        setNewPassword('');
-        setConfirmPassword('');
-        setIsModalOpen(false); // Close the modal after changing password
       } else {
         setError(response.data.error);
       }
@@ -122,7 +123,7 @@ function SignIn({ onLoginSuccess }) {
     <ChakraProvider>
       <Box p={8} maxWidth="500px" mx="auto">
         <Heading as="h1" mb={6} textAlign="center">
-        GO-Miniproject
+          GO-Miniproject
         </Heading>
         {error && (
           <Alert status="error" mb={6}>
@@ -172,7 +173,7 @@ function SignIn({ onLoginSuccess }) {
                     <Input
                       pr="4.5rem"
                       type={showNewPassword ? "text" : "password"}
-                      placeholder="Enter new password"
+                      placeholder="รหัสผ่านใหม่"
                       value={newPassword}
                       onChange={(e) => setNewPassword(e.target.value)}
                     />
@@ -185,12 +186,12 @@ function SignIn({ onLoginSuccess }) {
                 </FormControl>
 
                 <FormControl id="confirmPassword">
-                  <FormLabel>Confirm Password</FormLabel>
+                  <FormLabel>ยืนยันรหัสผ่านใหม่อีกครั้ง</FormLabel>
                   <InputGroup size="md">
                     <Input
                       pr="4.5rem"
                       type={showConfirmPassword ? "text" : "password"}
-                      placeholder="Confirm new password"
+                      placeholder="ยืนยันรหัสผ่านใหม่อีกครั้ง"
                       value={confirmPassword}
                       onChange={(e) => setConfirmPassword(e.target.value)}
                     />
@@ -203,7 +204,7 @@ function SignIn({ onLoginSuccess }) {
                 </FormControl>
 
                 <Button colorScheme="blue" onClick={handleChangePassword} width="full">
-                  Save New Password
+                  บันทึกรหัสผ่านใหม่
                 </Button>
               </>
             )}
