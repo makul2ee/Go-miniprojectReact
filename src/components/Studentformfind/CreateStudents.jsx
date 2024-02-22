@@ -65,7 +65,7 @@ const CreateStudents = ({ onClose }) => {
                 name="FirstName"
                 value={formData.FirstName}
                 onChange={handleChange}
-                className="w-full text-gray-800 rounded-md p-2"
+                className="w-full text-gray-800 rounded-md p-2 border border-gray-300"
                 required
               />
             </div>
@@ -77,7 +77,7 @@ const CreateStudents = ({ onClose }) => {
                 name="LastName"
                 value={formData.LastName}
                 onChange={handleChange}
-                className="w-full text-gray-800 rounded-md p-2"
+                className="w-full text-gray-800 rounded-md p-2 border border-gray-300"
                 required
               />
             </div>
@@ -89,7 +89,7 @@ const CreateStudents = ({ onClose }) => {
                 name="Age"
                 value={formData.Age}
                 onChange={handleChange}
-                className="w-full text-gray-800 rounded-md p-2"
+                className="w-full text-gray-800 rounded-md p-2 border border-gray-300"
                 required
               />
             </div>

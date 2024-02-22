@@ -72,7 +72,7 @@ const CreateUsers = ({ onClose }) => {
                 name="Name"
                 value={formData.Name}
                 onChange={handleChange}
-                className="w-full text-gray-800 rounded-md p-2"
+                className="w-full text-gray-800 rounded-md p-2 border border-gray-300"
                 required
               />
             </div>
@@ -84,7 +84,7 @@ const CreateUsers = ({ onClose }) => {
                 name="Email"
                 value={formData.Email}
                 onChange={handleChange}
-                className="w-full text-gray-800 rounded-md p-2"
+                className="w-full text-gray-800 rounded-md p-2 border border-gray-300"
                 required
               />
             </div>
@@ -96,7 +96,7 @@ const CreateUsers = ({ onClose }) => {
                 name="Password"
                 value={formData.Password}
                 onChange={handleChange}
-                className="w-full text-gray-800 rounded-md p-2"
+                className="w-full text-gray-800 rounded-md p-2 border border-gray-300"
                 required
               />
             </div>
@@ -108,7 +108,7 @@ const CreateUsers = ({ onClose }) => {
                 name="ConfirmPassword"
                 value={formData.ConfirmPassword}
                 onChange={handleChange}
-                className="w-full text-gray-800 rounded-md p-2"
+                className="w-full text-gray-800 rounded-md p-2 border border-gray-300"
                 required
               />
               {passwordMatchError && <p className="text-red-500">{passwordMatchError}</p>}

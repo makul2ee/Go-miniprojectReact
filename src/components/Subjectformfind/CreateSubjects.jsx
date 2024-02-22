@@ -63,7 +63,7 @@ const CreateSubjects = ({ onClose }) => {
                 name="Name"
                 value={formData.Name}
                 onChange={handleChange}
-                className="w-full text-gray-800 rounded-md p-2"
+                className="w-full text-gray-800 rounded-md p-2 border border-gray-300"
                 required
               />
             </div>
@@ -74,7 +74,7 @@ const CreateSubjects = ({ onClose }) => {
                 name="Description"
                 value={formData.Description}
                 onChange={handleChange}
-                className="w-full text-gray-800 rounded-md p-2"
+                className="w-full text-gray-800 rounded-md p-2 border border-gray-300"
                 required
               />
             </div>

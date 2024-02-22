@@ -66,7 +66,7 @@ const CreateTeachers = ({ onClose }) => {
                 name="FirstName"
                 value={formData.FirstName}
                 onChange={handleChange}
-                className="w-full text-gray-800 rounded-md p-2"
+                className="w-full text-gray-800 rounded-md p-2 border border-gray-300"
                 required
               />
             </div>
@@ -78,7 +78,7 @@ const CreateTeachers = ({ onClose }) => {
                 name="LastName"
                 value={formData.LastName}
                 onChange={handleChange}
-                className="w-full text-gray-800 rounded-md p-2"
+                className="w-full text-gray-800 rounded-md p-2 border border-gray-300"
                 required
               />
             </div>
@@ -90,7 +90,7 @@ const CreateTeachers = ({ onClose }) => {
                 name="Age"
                 value={formData.Age}
                 onChange={handleChange}
-                className="w-full text-gray-800 rounded-md p-2"
+                className="w-full text-gray-800 rounded-md p-2 border border-gray-300"
                 required
               />
             </div>
@@ -102,7 +102,7 @@ const CreateTeachers = ({ onClose }) => {
                 name="TeachingSubject"
                 value={formData.TeachingSubject}
                 onChange={handleChange}
-                className="w-full text-gray-800 rounded-md p-2"
+                className="w-full text-gray-800 rounded-md p-2 border border-gray-300"
                 required
               />
             </div>
@@ -124,37 +124,37 @@ const CreateTeachers = ({ onClose }) => {
         </div>
       </div>
       {showSuccessModal && (
-  <div className="fixed inset-0 flex items-center justify-center bg-gray-500 bg-opacity-50">
-    <div className="bg-white p-8 rounded-md flex flex-col items-center">
-      <FontAwesomeIcon
-        icon={faCheckCircle}
-        className="text-5xl text-green-500 mb-4"
-      />
-      <h2 className="text-2xl font-bold text-black mb-4">สำเร็จ</h2>
-      <p className="text-lg text-black">เพิ่มข้อมูลครูสำเร็จ</p>
-      <button
-        onClick={handleCloseModal}
-        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4"
-      >
-        ตกลง
-      </button>
-    </div>
-  </div>
-)}
-{error && (
-  <div className="fixed inset-0 flex items-center justify-center bg-gray-500 bg-opacity-50">
-    <div className="bg-white p-8 rounded-md flex flex-col items-center">
-      <h2 className="text-2xl font-bold mb-4">เกิดข้อผิดพลาดในการเพิ่มข้อมูล</h2>
-      <p className="text-lg text-black">{error}</p>
-      <button
-        onClick={() => setError("")}
-        className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mt-4"
-      >
-        ตกลง
-      </button>
-    </div>
-  </div>
-)}
+        <div className="fixed inset-0 flex items-center justify-center bg-gray-500 bg-opacity-50">
+          <div className="bg-white p-8 rounded-md flex flex-col items-center">
+            <FontAwesomeIcon
+              icon={faCheckCircle}
+              className="text-5xl text-green-500 mb-4"
+            />
+            <h2 className="text-2xl font-bold text-black mb-4">สำเร็จ</h2>
+            <p className="text-lg text-black">เพิ่มข้อมูลครูสำเร็จ</p>
+            <button
+              onClick={handleCloseModal}
+              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4"
+            >
+              ตกลง
+            </button>
+          </div>
+        </div>
+      )}
+      {error && (
+        <div className="fixed inset-0 flex items-center justify-center bg-gray-500 bg-opacity-50">
+          <div className="bg-white p-8 rounded-md flex flex-col items-center">
+            <h2 className="text-2xl font-bold mb-4">เกิดข้อผิดพลาดในการเพิ่มข้อมูล</h2>
+            <p className="text-lg text-black">{error}</p>
+            <button
+              onClick={() => setError("")}
+              className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mt-4"
+            >
+              ตกลง
+            </button>
+          </div>
+        </div>
+      )}
     </>
   );
 };
