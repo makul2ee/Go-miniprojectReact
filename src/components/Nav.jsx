@@ -32,10 +32,10 @@ const Nav = ({ isLoggedIn, onLogout }) => {
   return (
     <nav className="bg-gray-700 px-4 py-2 w-full">
       <div className="container mx-auto flex items-center justify-between">
-        <h3 className="text-xl text-white">GO-Miniproject</h3>
+        <h3 className="text-xl text-white font-bold">GO-Miniproject</h3>
         <ul className="flex space-x-4">
           <li>
-            <Link to="/" className="text-white hover:text-green-500">หน้าหลัก</Link>
+            <Link to="/Listcompo" className="text-white hover:text-green-500">หน้าหลัก</Link>
           </li>
           {isLoggedIn ? (
             <>

@@ -3,11 +3,10 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import SignIn from './components/Signin';
 import Register from './components/Register';
 import Nav from './components/Nav';
-import Card from './components/Card';
-import Teacher from './components/Teacher';
 import TeachersList from './components/Teacherformfind';
 import SubjectList from './components/Subjectformfind';
-import StudentList from './components/Studentformfind';
+import StudentCRUD from './components/Studentformfind';
+import Listcompo from './components/Listcompo';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -32,10 +31,11 @@ function App() {
         <Routes>
           <Route path="/signin" element={<SignIn onLoginSuccess={handleLoginSuccess} />} />
           <Route path="/register" element={<Register onRegisterSuccess={handleRegisterSuccess} />} />
-          <Route path="/" element={<Card isLoggedIn={isLoggedIn} />} />
+          <Route path="/" element={<Listcompo />} />
           <Route path="/teachers" element={<TeachersList />} />
           <Route path="/subjects" element={<SubjectList/>} />
-          <Route path="/students" element={<StudentList/>} />
+          <Route path="/students" element={<StudentCRUD/>} />
+          <Route path="/Listcompo" element={<Listcompo/>} />
         </Routes>
       </div>
     </Router>
