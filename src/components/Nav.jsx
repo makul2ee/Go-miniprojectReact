@@ -8,20 +8,21 @@ const Nav = ({ isLoggedIn, onLogout }) => {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/users');
-        const userData = response.data.find(user => user.Email === localStorage.getItem('loggedInUser'));
-        if (userData) {
-          setName(userData.Name);
+        const loggedInUser = localStorage.getItem('loggedInUser');
+        if (loggedInUser) {
+          const response = await axios.get(`http://localhost:5000/users?Email=${loggedInUser}`);
+          const userData = response.data[0];
+          if (userData && userData.Name) { // ตรวจสอบว่า userData.Name ไม่เป็น undefined หรือ null
+            setName(userData.Name);
+          }
         }
       } catch (error) {
         console.error('Failed to fetch user data:', error);
       }
     };
-
-    if (isLoggedIn) {
-      fetchUserData();
-    }
-  }, [isLoggedIn]);
+  
+    fetchUserData();
+  }, []);
 
   const handleLogout = () => {
     onLogout();
