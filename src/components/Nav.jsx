@@ -2,9 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
-const Nav = ({ onLogout }) => {
+const Nav = ({ isLoggedIn, onLogout }) => {
   const [name, setName] = useState('');
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -13,33 +12,23 @@ const Nav = ({ onLogout }) => {
         if (loggedInUser) {
           const response = await axios.get(`http://localhost:5000/users?Email=${loggedInUser}`);
           const userData = response.data[0];
-          if (userData && userData.Name) {
+          if (userData && userData.Name) { // ตรวจสอบว่า userData.Name ไม่เป็น undefined หรือ null
             setName(userData.Name);
-            setIsLoggedIn(true); // ตั้งค่าสถานะเข้าสู่ระบบเป็น true
           }
         }
       } catch (error) {
         console.error('Failed to fetch user data:', error);
       }
     };
-
+  
     fetchUserData();
   }, []);
 
   const handleLogout = () => {
     onLogout();
     localStorage.removeItem('loggedInUser');
-    setIsLoggedIn(false); // ตั้งค่าสถานะเข้าสู่ระบบเป็น false เมื่อออกจากระบบ
+    window.location.href = '/signin';
   };
-
-  useEffect(() => {
-    const loggedInUser = localStorage.getItem('loggedInUser');
-    if (!loggedInUser) {
-      handleLogout(); // ถ้าไม่มีข้อมูลการเข้าสู่ระบบใน Local Storage ให้ออกจากระบบ
-    } else {
-      setIsLoggedIn(true); // ตั้งค่าสถานะเข้าสู่ระบบเป็น true เมื่อมีข้อมูลการเข้าสู่ระบบใน Local Storage
-    }
-  }, []);
 
   return (
     <nav className="bg-gray-700 px-4 py-2 w-full">
@@ -51,7 +40,7 @@ const Nav = ({ onLogout }) => {
           </li>
           {isLoggedIn ? (
             <>
-              <li>
+             <li>
                 <Link to="/users" className="text-white hover:text-green-500">ตารางผู้ใช้</Link>
               </li>
               <li>
@@ -71,15 +60,15 @@ const Nav = ({ onLogout }) => {
               </li>
             </>
           ) : (
-              <>
-                <li>
-                  <Link to="/signin" className="text-white hover:text-green-500">เข้าสู่ระบบ</Link>
-                </li>
-                <li>
-                  <Link to="/register" className="text-white hover:text-green-500">ลงทะเบียน</Link>
-                </li>
-              </>
-            )}
+            <>
+              <li>
+                <Link to="/signin" className="text-white hover:text-green-500">เข้าสู่ระบบ</Link>
+              </li>
+              <li>
+                <Link to="/register" className="text-white hover:text-green-500">ลงทะเบียน</Link>
+              </li>
+            </>
+          )}
         </ul>
       </div>
     </nav>

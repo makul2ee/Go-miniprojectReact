@@ -2,14 +2,14 @@ import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 
-const DeleteUsers = ({ onClose, userID }) => {
+const DeleteUsers = ({ onClose, userEmail }) => {
   const [user, setUser] = useState(null);
   const [isDeleted, setIsDeleted] = useState(false);
 
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/users/${userID}`);
+        const response = await fetch(`http://localhost:5000/users/${userEmail}`);
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -20,12 +20,12 @@ const DeleteUsers = ({ onClose, userID }) => {
       }
     };
     fetchUser();
-  }, [userID]);
+  }, [userEmail]);
 
   const handleConfirmDelete = async () => {
     try {
       const response = await fetch(
-        `http://localhost:5000/users/${userID}`,
+        `http://localhost:5000/users/${userEmail}`,
         {
           method: "DELETE",
           headers: {
